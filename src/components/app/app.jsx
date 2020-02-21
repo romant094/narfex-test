@@ -4,7 +4,7 @@ import {LanguageInput} from '../language-input';
 export const App = () => {
     return (
         <div>
-            <LanguageInput/>
+            <LanguageInput />
         </div>
     );
 };
