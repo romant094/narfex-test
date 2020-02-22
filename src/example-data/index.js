@@ -16,7 +16,20 @@ export const DEFAULT_SELECTED = [
         title: 'French'
     }
 ];
-
+export const DEFAULT_SELECTED_2 = [
+    {
+        id: 5,
+        title: 'Portuguese'
+    },
+    {
+        id: 6,
+        title: 'German'
+    },
+    {
+        id: 7,
+        title: 'Norwegian'
+    }
+];
 export const DEFAULT_ALL = [
     {
         id: 1,

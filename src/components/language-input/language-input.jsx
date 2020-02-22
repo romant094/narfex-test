@@ -5,7 +5,6 @@ import {InputField} from './input-field';
 import {Button} from '../common'
 import {Dropdown} from './dropdown';
 import {removeDuplicates, sortObjectArray} from './utils';
-import {DEFAULT_ALL, DEFAULT_SELECTED} from './example-data';
 import {MAX_ELEMENT_WIDTH} from './constants';
 import dropdownIcon from './images/dropdown_arrow.png';
 
@@ -46,11 +45,12 @@ export class LanguageInput extends React.Component {
     elementObservable = new ResizeObserver(() => this.updateWrapperHeight());
 
     componentDidMount() {
-        const allLanguages = removeDuplicates(DEFAULT_ALL, DEFAULT_SELECTED);
+        const {selectedLanguages = [], allLanguages} = this.props;
+        const languages = removeDuplicates(allLanguages, selectedLanguages);
 
         this.setState({
-            selectedLanguages: DEFAULT_SELECTED,
-            allLanguages
+            selectedLanguages,
+            allLanguages: languages
         });
         this.elementObservable.observe(this.wrapperRef.current)
     }

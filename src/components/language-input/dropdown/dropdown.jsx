@@ -21,6 +21,7 @@ const Wrapper = styled.ul`
   font-weight: 300;
   font-size: 13px;
   color: #55677d;
+  box-shadow: 0 3px 10px 0 rgba(204,204,238,0.5);
 `;
 
 export class Dropdown extends Component {
@@ -40,7 +41,7 @@ export class Dropdown extends Component {
         current.removeEventListener('keydown', this.handleKeyDown);
     }
 
-    lightenItem = activeItem => {
+    setActiveItem = activeItem => {
         this.setState({activeItem});
     };
 
@@ -70,7 +71,7 @@ export class Dropdown extends Component {
                 toggleLanguage(activeItem, 'allLanguages', 'selectedLanguages');
                 break;
             case 'Escape':
-                toggleDropdown()
+                toggleDropdown();
                 break;
             default:
                 break;
@@ -98,7 +99,7 @@ export class Dropdown extends Component {
                     key={item.title}
                     item={item.title}
                     toggleLanguage={() => toggleLanguage(id, 'allLanguages', 'selectedLanguages')}
-                    handleHover={() => this.lightenItem(id)}
+                    handleHover={() => this.setActiveItem(id)}
                 />
             ))
             : FILTER_ERROR_TEXT;
