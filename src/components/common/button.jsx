@@ -15,11 +15,19 @@ const Image = styled.img`
   //width: 100%;
 `;
 
-export const Button = ({icon, pointer, ...restProps}) => {
+export const Button = ({icon, pointer, onClick, ...restProps}) => {
     const {src, alt} = icon;
+    const handleClick = event => {
+        event.stopPropagation();
+        const {target: {tagName}} = event;
+
+        if (tagName === 'IMG' || tagName === 'BUTTON') {
+            onClick()
+        }
+    };
 
     return (
-        <Btn cursor={pointer && 'pointer'} {...restProps}>
+        <Btn cursor={pointer && 'pointer'} onClick={handleClick} {...restProps}>
             {
                 icon && <Image src={src} alt={alt} />
             }

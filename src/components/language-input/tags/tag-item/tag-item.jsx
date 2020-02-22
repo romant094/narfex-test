@@ -7,12 +7,13 @@ const Span = styled.span`
   border-radius: 3px;
   border: 1px solid #ccc;
   background-color: #dae2e8;
-  padding: 3px;
+  padding: 5px 3px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   cursor: default;
   margin-right: 5px;
+  margin-bottom: 3px;
   
   &:hover{
     background-color: #cbd6de;    
@@ -27,11 +28,15 @@ const Title = styled.span`
   line-height: 1;
 `;
 
-export const TagItem = ({title}) => {
+export const TagItem = ({title, handleDeleteTag}) => {
     return (
         <Span>
             <Title>{title}</Title>
-            <Button icon={{src: cross, alt: 'x'}} pointer />
+            <Button
+                icon={{src: cross, alt: 'x'}}
+                pointer
+                onClick={handleDeleteTag}
+            />
         </Span>
     );
 };

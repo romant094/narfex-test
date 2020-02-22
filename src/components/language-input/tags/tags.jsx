@@ -1,17 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 import {TagItem} from './tag-item';
 
-const Wrapper = styled.div`
-  display:flex;
-`;
-
-export const Tags = ({tags}) => {
+export const Tags = ({tags, toggleLanguage}) => {
     return (
-        <Wrapper>
+        <React.Fragment>
             {
-                tags.map(({title}) => <TagItem key={title} title={title} />)
+                tags && tags.map((tag, id) => (
+                    <TagItem
+                        key={tag.title}
+                        title={tag.title}
+                        handleDeleteTag={() => toggleLanguage(id, 'selectedLanguages', 'allLanguages')}
+                    />
+                ))
             }
-        </Wrapper>
+        </React.Fragment>
     );
 };

@@ -2,12 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Input = styled.input`
-  width: calc(100% - 20px);
   border: none;
+  min-width: 10px;
+  margin-bottom: 3px;
+  flex: 1;
 `;
 
-export const InputField = () => {
+export const InputField = ({onChange, inputRef}) => {
     return (
-        <Input />
+        <Input onChange={onChange} ref={inputRef} />
     );
 };
