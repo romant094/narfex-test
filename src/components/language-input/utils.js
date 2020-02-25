@@ -12,12 +12,12 @@ export const sortObjectArray = (a, b, field) => {
 
 export const findParent = (target, ref) => {
     const parent = target.parentNode;
-
+    // console.log(target===ref)
     if (!parent) {
         return false;
     }
 
-    if (parent.className === ref.className) {
+    if (parent === ref) {
         return parent;
     } else {
         findParent(parent, ref)

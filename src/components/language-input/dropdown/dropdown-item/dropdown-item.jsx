@@ -17,12 +17,12 @@ const Wrapper = styled.li`
   }
 `;
 
-export const DropdownItem = ({item, toggleLanguage, handleHover, ...resProps}) => {
+export const DropdownItem = ({item, toggleLanguage, handleHover, activeItem}) => {
     return (
         <Wrapper
+            className={activeItem ? 'active' : ''}
             onClick={toggleLanguage}
             onMouseEnter={handleHover}
-            {...resProps}
         >
             {item}
         </Wrapper>

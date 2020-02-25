@@ -8,8 +8,6 @@ const Input = styled.input`
   flex: 1;
 `;
 
-export const InputField = ({onChange, inputRef}) => {
-    return (
-        <Input onChange={onChange} ref={inputRef} />
-    );
-};
+export const InputField = ({onChange, inputRef, handleKeyDown}) => (
+    <Input onChange={onChange} ref={inputRef} onKeyDown={handleKeyDown} />
+);
